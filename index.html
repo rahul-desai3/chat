@@ -1,7 +1,7 @@
 <style>
   body{
-  	margin: 0 auto;
-  	width: 50%;
+    margin: 0 auto;
+    width: 50%;
     font-family: arial;
   }
 
@@ -33,7 +33,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script>
-  var server = io.connect('http://rahul-de:8080/');
+  var server = io.connect('http://localhost:8080/');
 
   server.on('connect', function(data){
     var nickname = prompt("Please enter your nickname for THE chatroom:");
@@ -49,19 +49,22 @@
 
   $(document).on("submit", "form#chat_form", function(e){
     e.preventDefault();
-  	var message = $("input#chat_input").val();
+    var message = $("input#chat_input").val();
     $('input#chat_input').val('').focus();
-  	$("div#chat_log").append("<p><strong>Me: </strong>" + message + "</p>");
-  	server.emit("messages", message);
+    $("div#chat_log").append("<p><strong>Me: </strong>" + message + "</p>");
+    server.emit("messages", message);
     $("div#chat_log").animate({ scrollTop: $(document).height() }, 500);
   });
 
   server.on('messages', function(messages) {
     $("div#chat_log").append("<p>" + messages + "</p>");
-    $("html, body").animate({ scrollTop: $(document).height() }, 2000);
+    $("html, body").animate({ scrollTop: $(document).height() }, 500);
   });
 
-  window.onunload = alert("closing");
+  //window.onunload = alert("closing");
+  $(window).bind("beforeunload", function() { 
+      return confirm("Do you really want to close?"); 
+  });
 </script>
 
 <div id="chat_members"></div>
