@@ -33,7 +33,7 @@ Technologies
 Installation & Setup
 ----
 
-* [Download and install Node.js] and [Socket.io] versions mentioned above, locally in the root folder of your project.
+* Download and install [Node.js] and [Socket.io] versions mentioned above, locally in the root folder of your project.
 * To run the Node server, browser to you projet's root directory in your command prompt/terminal and issue the following command:
 
 ```sh
