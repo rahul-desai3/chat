@@ -1,7 +1,7 @@
 Chat
 ====
 
-This is a basic chat application. This application includes following features:
+This is a basic chat application that suports following features:
 
   - Send message to the chatroon
   - Receive message from the chatroom
