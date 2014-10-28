@@ -1,0 +1,75 @@
+<style>
+  body{
+  	margin: 0 auto;
+  	width: 50%;
+    font-family: arial;
+  }
+
+  div#chat_log{
+    border: 1px solid black;
+    padding: 10px;  
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    margin-top: 10px;
+    height: 75%;
+    overflow-y: auto;
+  }
+
+  form#chat_form{
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  input#chat_input{
+    width: 100%;
+    height: 10%;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;    
+  }
+</style>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+  var server = io.connect('http://rahul-de:8080/');
+
+  server.on('connect', function(data){
+    var nickname = prompt("Please enter your nickname for THE chatroom:");
+    server.emit('join', nickname);
+
+    while(nickname === null || nickname === '')
+      nickname = prompt("Please enter your naickname for THE chatroom:");
+
+    $("div#chat_log").append("<p>You have joined THE chatroom.</p>");
+
+    $('input#chat_input').focus();
+  });
+
+  $(document).on("submit", "form#chat_form", function(e){
+    e.preventDefault();
+  	var message = $("input#chat_input").val();
+    $('input#chat_input').val('').focus();
+  	$("div#chat_log").append("<p><strong>Me: </strong>" + message + "</p>");
+  	server.emit("messages", message);
+    $("div#chat_log").animate({ scrollTop: $(document).height() }, 500);
+  });
+
+  server.on('messages', function(messages) {
+    $("div#chat_log").append("<p>" + messages + "</p>");
+    $("html, body").animate({ scrollTop: $(document).height() }, 2000);
+  });
+
+  window.onunload = alert("closing");
+</script>
+
+<div id="chat_members"></div>
+
+<div>
+  <div id="chat_log"></div>
+
+  <form id="chat_form">
+    <input type="text" id="chat_input" placeholder="Enter your message here and press Enter." autocomplete="off" />
+  </form>
+</div>
