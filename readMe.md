@@ -46,6 +46,6 @@ License
 
 [MIT] (Open source)
 
-[Install Node.js]:http://nodejs.org/download/
+[Node.js]:http://nodejs.org/download/
 [Socket.io]:https://www.npmjs.org/package/socket.io
 [MIT]:http://opensource.org/licenses/MIT
