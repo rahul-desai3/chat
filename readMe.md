@@ -34,11 +34,13 @@ Installation & Setup
 ----
 
 * Download and install [Node.js] and [Socket.io] versions mentioned above, locally in the root folder of your project.
+* Ensure that port 8080 is free (or you can use any port that is free, just mention it in app.js and index.html)
 * To run the Node server, browser to you projet's root directory in your command prompt/terminal and issue the following command:
 
 ```sh
 node app.js
 ```
+* After running the server, you can checkout the chatroom at http://localhost:8080
 
 
 License
