@@ -3,7 +3,7 @@ Chat
 
 This is a basic chat application that suports following features:
 
-  - Send message to the chatroon
+  - Send message to the chatroom
   - Receive message from the chatroom
   - Get notification if new member joins the chatroom
 
