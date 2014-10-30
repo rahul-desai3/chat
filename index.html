@@ -27,6 +27,10 @@
     outline: none;
     padding: 10px;    
   }
+
+  span.italic{
+    font-style: italic;
+  }
 </style>
 
 <script src="/socket.io/socket.io.js"></script>
@@ -40,9 +44,7 @@
     server.emit('join', nickname);
 
     while(nickname === null || nickname === '')
-      nickname = prompt("Please enter your naickname for THE chatroom:");
-
-    $("div#chat_log").append("<p>You have joined THE chatroom.</p>");
+      nickname = prompt("Please enter your nickname for THE chatroom:");
 
     $('input#chat_input').focus();
   });
@@ -58,7 +60,7 @@
 
   server.on('messages', function(messages) {
     $("div#chat_log").append("<p>" + messages + "</p>");
-    $("html, body").animate({ scrollTop: $(document).height() }, 500);
+    $("div#chat_log").animate({ scrollTop: $(document).height() }, 500);
   });
 
   //window.onunload = alert("closing");
