@@ -1,17 +1,18 @@
 Chat
 ====
 
-This is a basic chat application that suports following features:
+This software repository/project contains a chat server (app.js) and a chat client (index.html). It suports following features:
 
   - Send message to the chatroom
   - Receive message from the chatroom
-  - Get notification if new member joins the chatroom
+  - Receive offline messages (messages sent when the receiver was offline)
+  - Get notification if new member joins the chatroom 
 
 
 Version
 ----
 
-0.1
+0.2
 
 
 Coming soon...
