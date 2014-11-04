@@ -7,6 +7,7 @@ This software repository/project contains a chat server (app.js) and a chat clie
   - Receive message from the chatroom
   - Receive offline messages (messages sent when the receiver was offline)
   - Get notification if new member joins the chatroom 
+  - List of members in the chatroom
 
 
 Version
@@ -18,7 +19,7 @@ Version
 Coming soon...
 ----
     
-  - List of members online in the chatroom
+  - Update list of members online in the chatroom if someone disconnects
 
 
 Technologies
