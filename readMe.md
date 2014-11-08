@@ -36,7 +36,7 @@ Technologies
 
 Installation & Setup
 ----
-
+* Download and unzip the project.
 * Download and install Node.js and the following node modules: socket.io, express, redis. These node modules should be installed locally in the root folder of the project.
 * Also download and install Redis server.
 * Run the Redis server.
@@ -46,7 +46,7 @@ Installation & Setup
 ```sh
 node app.js
 ```
-* After running the server, you can checkout the chatroom at http://localhost:8080
+* After running the server, you can checkout the chatroom at http://localhost:8080 (or whatever port number that you used).
 
 
 License
