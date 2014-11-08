@@ -19,7 +19,7 @@ Version
 Coming soon...
 ----
     
-  - Update list of members online in the chatroom if someone disconnects
+  - Updated list of members online in the chatroom if someone disconnects
 
 
 Technologies
@@ -27,7 +27,9 @@ Technologies
 * Javascript
 * jQuery core library v1.11.1
 * Node.js v0.10.32
-* Socket.io v1.2.0
+* Socket.io
+* Express.js
+* Redis
 * HTML5
 * CSS3
 
@@ -35,7 +37,9 @@ Technologies
 Installation & Setup
 ----
 
-* Download and install [Node.js] and [Socket.io] versions mentioned above, locally in the root folder of your project.
+* Download and install Node.js and the following node modules: socket.io, express, redis. These node modules should be installed locally in the root folder of the project.
+* Also download and install Redis server.
+* Run the Redis server.
 * Ensure that port 8080 is free (or you can use any port that is free, just mention it in app.js and index.html)
 * To run the Node server, browser to you projet's root directory in your command prompt/terminal and issue the following command:
 
@@ -50,6 +54,4 @@ License
 
 [MIT] (Open source)
 
-[Node.js]:http://nodejs.org/download/
-[Socket.io]:https://www.npmjs.org/package/socket.io
 [MIT]:http://opensource.org/licenses/MIT
