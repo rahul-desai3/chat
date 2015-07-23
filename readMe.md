@@ -25,10 +25,10 @@ Coming soon...
 Technologies
 ----
 * Javascript
-* jQuery core library v1.11.1
 * Node.js v0.10.32
 * Socket.io
 * Express.js
+* jQuery core library v1.11.1
 * Redis
 * HTML5
 * CSS3
@@ -37,7 +37,7 @@ Technologies
 Installation & Setup
 ----
 * Download and unzip the project.
-* Download and install Node.js and the following node modules: socket.io, express, redis. These node modules should be installed locally in the root folder of the project.
+* Download and install Node.js and the following node modules: `socket.io`, `express`, `redis`. These node modules should be installed locally in the root folder of the project.
 * Also download and install Redis server.
 * Run the Redis server.
 * Ensure that port 8080 is free (or you can use any port that is free, just mention it in app.js and index.html)
