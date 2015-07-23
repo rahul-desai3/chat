@@ -37,10 +37,14 @@ Technologies
 Installation & Setup
 ----
 * Download and unzip the project.
-* Download and install Node.js and the following node modules: `socket.io`, `express`, `redis`. These node modules should be installed locally in the root folder of the project.
+* Download and install Node.js and the following node modules: `socket.io`, `express`, `redis`. These node modules should be installed locally in the root folder of the project. Here is the command for installation:
+
+```sh
+npm install <nodeModuleName>
+```
 * Also download and install Redis server.
 * Run the Redis server.
-* Ensure that port 8080 is free (or you can use any port that is free, just mention it in app.js and index.html)
+* Ensure that port `8080` is free (or you can use any port that is free, just mention it in app.js and index.html)
 * To run the Node server, browser to you projet's root directory in your command prompt/terminal and issue the following command:
 
 ```sh
