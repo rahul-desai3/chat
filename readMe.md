@@ -40,7 +40,7 @@ Installation & Setup
 * Download and install Node.js and the following node modules: `socket.io`, `express`, `redis`. These node modules should be installed locally in the root folder of the project. Here is the command for installation:
 
 ```sh
-npm install <nodeModuleName>
+npm install <node-module-name>
 ```
 * Also download and install Redis server.
 * Run the Redis server.
