@@ -50,7 +50,7 @@ npm install <nodeModuleName>
 ```sh
 node app.js
 ```
-* After running the server, you can checkout the chatroom at http://localhost:8080 (or whatever port number that you used).
+* After running the server, you can checkout the chatroom at `http://localhost:8080` (or with whatever port number that you used).
 
 
 License
