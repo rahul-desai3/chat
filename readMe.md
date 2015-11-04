@@ -18,7 +18,8 @@ Version
 
 Coming soon...
 ----
-  - Replace jQuery with Angular.js
+  - Replace jQuery with Angular.js for better performance
+  - Replace Redis with MongoDB for persisting messages
   - Updated list of members online in the chatroom if someone disconnects
 
 
