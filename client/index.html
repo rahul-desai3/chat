@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>THE Chatroom</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+
+  <body>
+    <div id="container">
+
+      <div id="chattersContainer">
+        <ul id="chatters"></ul>
+      </div>
+      
+      <div id="chatLogandFormContainer">
+        <div id="chatLog"></div>
+        <div id="formContainer">
+          <form id="chatForm">
+            <input type="text" id="chatInput" placeholder="Enter your message here and hit Enter/Return." autocomplete="off" autofocus />
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script> <!-- /node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+    <script src="client-side.js"></script>
+  
+  </body>
+</html>

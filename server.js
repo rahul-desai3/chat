@@ -1,14 +1,17 @@
 var express = require('express');
 var app = express();
 
+// create and start express server
 var server = require('http').Server(app);
+server.listen(8080, function(){
+    console.log('The chatroom is now live at port # 8080!');
+});
 
 var io = require('socket.io')(server);
 
 var redis = require('redis');
 var redisClient = redis.createClient();
 
-server.listen(8080);
 
 var messages = [];
 
@@ -21,8 +24,10 @@ var storeMessage = function(nickname, message){
     });
 };
 
+app.use(express.static(__dirname + '/client'));  // all static content for the browser
+
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile('/client/index.html');
 });
 
 io.on('connection', function (client) {
@@ -36,7 +41,7 @@ io.on('connection', function (client) {
         redisClient.smembers('chatters', function(error, nicknames){
             nicknames.forEach(function(nickname){
                 client.emit("add chatter", nickname);
-            })
+            });
         });
 
         redisClient.sadd("new_chatters", nickname);
@@ -58,9 +63,6 @@ io.on('connection', function (client) {
 
             client.emit("messages", "<span class='italic'><strong>" + client.nickname + "</strong> has joined!</span>"); // let the user know
         });
-
-        // give connection message
-        //client.emit("messages", "<p class='italic'>You have joined THE chatroom.</p>");
 
     });
     
