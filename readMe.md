@@ -37,7 +37,7 @@ Installation & Setup
 npm install socket.io express redis
 ```
 
-* Also download and install Redis server: http://redis.io/topics/quickstart
+* Also download and install Redis server v3.0.5, 64 bit: http://redis.io/topics/quickstart
 * Run the Redis server using the command `redis-server` in the redis directory.
 * Ensure that port `8080` is free (or you can use any port that is free, just mention it in server.js and index.html)
 * To run the Node server, browser to you projet's root directory in your command prompt/terminal and issue the following command:
