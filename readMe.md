@@ -49,7 +49,7 @@ npm install socket.io express redis
 * To run the Node server, browser to you projet's root directory in your command prompt/terminal and issue the following command:
 
 ```sh
-node app.js
+node server.js
 ```
 
 * After running the server, you can checkout the chatroom at `http://localhost:8080` (or with whatever port number that you used).
