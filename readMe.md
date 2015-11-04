@@ -16,13 +16,6 @@ Version
 0.3
 
 
-Coming soon...
-----
-  - Replace jQuery with Angular.js for better performance
-  - Replace Redis with MongoDB for persisting messages
-  - Updated list of members online in the chatroom if someone disconnects
-
-
 Technologies
 ----
 * Javascript
@@ -54,6 +47,13 @@ node server.js
 ```
 
 * After running the server, you can checkout the chatroom at `http://localhost:8080` (or with whatever port number that you used).
+
+
+Coming soon...
+----
+  - Replace jQuery with Angular.js for better performance
+  - Replace Redis with MongoDB for persisting messages
+  - Updated list of members online in the chatroom if someone disconnects
 
 
 License
