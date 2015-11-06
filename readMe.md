@@ -18,7 +18,7 @@ Version
 
 Technologies
 ----
-* Javascript
+* Javascript (ECMAScript 6)
 * Node.js v5.0.0
 * Socket.io v1.3.7
 * Express.js v4.13.3
