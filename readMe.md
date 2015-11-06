@@ -30,7 +30,7 @@ Technologies
 
 Installation & Setup
 ----
-* Download and unzip or `git clone` this project.
+* `git clone` or download and unzip this project.
 * Download and install Node.js and the following node modules: `socket.io`, `express`, `redis`. These node modules should be installed locally in the root folder of the project. Here is the command for installation:
 
 ```sh
