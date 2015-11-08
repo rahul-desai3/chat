@@ -1,40 +1,67 @@
-var server = io.connect('http://Rahuls-MacBook-Pro.local:8080/');
+angular
+.module('chatroom', [])
+.controller('mainController', ['$scope', function($scope){
 
-server.on('connect', function(data){
-  var nickname = prompt("Please enter your nickname for THE chatroom:");
-  server.emit('join', nickname);
+  // first, establish the socket connection
+  var server = io.connect('http://Rahuls-MacBook-Pro.local:5000/');
+  console.log('Main controller loaded.');
 
-  while(nickname === null || nickname === ''){
-    nickname = prompt("Please enter your nickname for THE chatroom:");
-  }
+  server.on('connect', function(data){
+    var nickname = prompt("Please enter your nickname for THE chatroom:");
+    server.emit('join', nickname);
 
-  $("ul#chatters").append("<li data-nickname='"+nickname+"'>" + nickname + "</li>");
+    while(nickname === null || nickname === ''){
+      nickname = prompt("Please enter your nickname for THE chatroom:");
+    }
 
-  $('input#chatInput').focus();
-});
+    var myEl = angular.element(document.querySelector('#chatters'));
+    myEl.append("<li data-nickname='"+nickname+"'>" + nickname + "</li>");     
 
-server.on('add chatter', function(nickname){
-  var chatter = "<li data-nickname='"+nickname+"'>" + nickname + "</li>";
-  $("ul#chatters").append(chatter);
-  $('input#chatInput').focus();
-});
+    // $('input#chatInput').focus();
+  });
 
-server.on('messages', function(messages) {
-  $("div#chatLog").append("<p>" + messages + "</p>");
-  $("div#chatLog").animate({ scrollTop: $(document).height() }, 500);
-  $('input#chatInput').focus();
-});
+  server.on('add chatter', function(nickname){
+    var chatter = "<li data-nickname='"+nickname+"'>" + nickname + "</li>";
+    angular.element(document.querySelector('#chatters')).append(chatter);
+    // $('input#chatInput').focus();
+  });
 
-$(document).on("submit", "form#chatForm", function(e){
-  e.preventDefault();
-  var message = $("input#chatInput").val();
-  $('input#chatInput').val('').focus();
-  $("div#chatLog").append("<p><strong>Me: </strong>" + message + "</p>");
-  server.emit("messages", message);
-  $("div#chatLog").animate({ scrollTop: $(document).height() }, 500);
-  $('input#chatInput').focus();
-});
+  server.on('messages', function(messages) {
+    angular.element(document.querySelector('#chatLog')).append("<p>" + messages + "</p>");
+    // $("div#chatLog").animate({ scrollTop: $(document).height() }, 500);
+    // $('input#chatInput').focus();
+  });
 
-$(window).bind("beforeunload", function() { 
-    return confirm("Do you really want to close?"); 
-});
+  $scope.submitHandler = function($event){
+    $event.preventDefault();
+
+    angular.element(document.querySelector('#chatLog')).append("<p><strong>Me: </strong>" + $scope.chatInput + "</p>");
+
+    server.emit("messages", $scope.chatInput);
+
+    $scope.chatInput = "";
+
+    // $("div#chatLog").animate({ scrollTop: $(document).height() }, 500);
+    // $('input#chatInput').focus();
+  };
+
+  // $(document).on("submit", "form#chatForm", function(e){
+  //   e.preventDefault();
+  //   var message = $("input#chatInput").val();
+  //   $('input#chatInput').val('').focus();
+  //   $("div#chatLog").append("<p><strong>Me: </strong>" + message + "</p>");
+  //   server.emit("messages", message);
+  //   $("div#chatLog").animate({ scrollTop: $(document).height() }, 500);
+  //   $('input#chatInput').focus();
+  // });
+
+  window.addEventListener("beforeunload", function (event) {
+    return confirm("Do you really want to close?");
+  });
+
+}]);
+
+
+// $(window).bind("beforeunload", function() { 
+//     return confirm("Do you really want to close?"); 
+// });

@@ -3,8 +3,8 @@ var app = express();
 
 // create and start express server
 var server = require('http').Server(app);
-server.listen(8080, function(){
-    console.log('The chatroom is now live at port # 8080!');
+server.listen(5000, function(){
+    console.log('The chatroom is now live at port # 5000!');
 });
 
 var io = require('socket.io')(server);
@@ -25,6 +25,12 @@ var storeMessage = function(nickname, message){
 };
 
 app.use(express.static(__dirname + '/client'));  // all static content for the browser
+
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
 
 app.get('/', function (req, res) {
     res.sendFile('/client/index.html');
