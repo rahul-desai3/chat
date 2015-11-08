@@ -3,8 +3,8 @@ Chatroom
 
 This software repository/project contains a chatroom server (server.js) and a chat client (index.html). It suports following features:
 
-  - Send message to the chatroom
-  - Receive message from the chatroom
+  - Send and receive message to the chatroom
+  - 1:1 chat can be converted to a group chat by just sharing the URL
   - Receive offline messages (messages sent when the receiver was offline)
   - Get notification if a new member joins the chatroom 
   - List of members in the chatroom
@@ -18,7 +18,7 @@ Version
 
 Technologies
 ----
-* Javascript
+* Javascript (ECMAScript 6)
 * Node.js v5.0.0
 * Socket.io v1.3.7
 * Express.js v4.13.3
@@ -30,7 +30,7 @@ Technologies
 
 Installation & Setup
 ----
-* Download and unzip or `git clone` this project.
+* `git clone` or download and unzip this project.
 * Download and install Node.js and the following node modules: `socket.io`, `express`, `redis`. These node modules should be installed locally in the root folder of the project. Here is the command for installation:
 
 ```sh
