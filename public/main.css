@@ -1,0 +1,111 @@
+.jumbotron {
+  background: #532F8C;
+  color: white;
+  padding-bottom: 80px; }
+  .jumbotron .btn-primary {
+    background: #845ac7;
+    border-color: #845ac7; }
+    .jumbotron .btn-primary:hover {
+      background: #7646c1; }
+  .jumbotron p {
+    color: #d9ccee;
+    max-width: 75%;
+    margin: 1em auto 2em; }
+  .navbar + .jumbotron {
+    margin-top: -20px; }
+  .jumbotron .lang-logo {
+    display: block;
+    background: #B01302;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border: 2px solid white; }
+    .jumbotron .lang-logo img {
+      max-width: 100%; }
+
+.col-xs-10{
+  height: 400px;
+}
+
+div#chatLog{
+  overflow-y: auto;
+  max-height: 350px;
+}
+
+ul#chatters{
+  height: 100%;
+  overflow-y: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+li:before {
+    content: "";
+    font-size: 15px;
+    padding-right: 5px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #4EC919;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+form#chatForm{
+  margin-bottom: 0px;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+input#chatInput{
+  width: 100%;
+  height: 10%;
+  border: 0px;
+  outline: none;
+  padding: 10px 10px 10px 0px;
+}
+
+span.italic{
+  font-style: italic;
+}
+
+li.ng-binding.ng-scope:first-child {
+    font-style: italic;
+}
+
+li.ng-binding.ng-scope:first-child:after {
+    content: " (me)";
+}
+
+.well{
+  background-color: #FFFFFF;
+  margin-top: 50px;
+}
+
+.form-control{
+    border-color: transparent;
+    padding-left: 0px;
+    box-shadow: none;
+}
+
+.error{
+  color: red;
+  font-style: italic;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.form-control:focus {
+    border-color: transparent;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

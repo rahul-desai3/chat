@@ -1,0 +1,7 @@
+{
+  "name": "Chatroom",
+  "description": "A simple chatroom app using Node.js and Socket.io",
+  "repository": "https://github.com/heroku/node-js-getting-started",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
