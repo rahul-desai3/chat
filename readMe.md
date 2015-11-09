@@ -1,7 +1,7 @@
 Chat
 ====
 
-This repo contains a chat server (`index.js`) and a chat client (`index.html`/`app.js`). It suports following features:
+This repo contains a chat server (`index.js`) and a chat client (`index.html`/`app.js`). It provides following features:
 
   - Send and receive message to and from the chat.
   - 1:1 chat can be converted to a group chat by just sharing the URL.
@@ -25,7 +25,7 @@ Technologies
 * Node.js v5.0.0
 * Socket.io v1.3.7
 * Express.js v4.13.3
-* Angular Bootstrap v0.14.3
+* Bootstrap v3.3.4
 * HTML5
 * CSS3
 
