@@ -3,9 +3,9 @@ Chatroom
 
 This repo contains a chatroom server (`index.js`) and a chat client (`index.html`/`app.js`). It suports following features:
 
-  - Send and receive message to the chatroom
-  - 1:1 chat can be converted to a group chat by just sharing the URL
-  - Get notification if a new member joins the chatroom 
+  - Send and receive message to and from the chatroom.
+  - 1:1 chat can be converted to a group chat by just sharing the URL.
+  - Get notification if a member joins or leaves the chatroom. 
 
 Demo
 ----
