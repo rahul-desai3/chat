@@ -1,6 +1,6 @@
 angular
-.module('chatroom', ['ngAnimate', 'ui.bootstrap'])
-.controller('mainController', ['$scope', '$http', '$uibModal', '$window', '$timeout', function($scope, $http, $uibModal, $window, $timeout){
+.module('chatroom', [])
+.controller('mainController', ['$scope', '$http', '$window', '$timeout', function($scope, $http, $window, $timeout){
 
   // first, establish the socket connection
   var server = io('http://localhost:5000'); // change this if you are hosting on a remote server
