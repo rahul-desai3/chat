@@ -34,7 +34,7 @@ Installation & Setup
 ----
 * `git clone` or download and unzip this project.
 * Download and install `node.js`.
-* Use the following command to install packages mentioned in `packages.json`
+* Use the following command to install node packages mentioned in `packages.json`
 ```sh
 npm install
 ```
