@@ -6,43 +6,49 @@
 
     <body ng-app="chatroom">
 
-        <div class="container" ng-controller="mainController" ng-class='{"well": gotNickname}'>
+        <div class="container" ng-controller="mainController">
 
-            <script type="text/ng-template" id="myModalContent.html">
-                <div class="modal-body">
-                    <input type="text" 
-                        class="form-control" 
-                        ng-model="nickname" 
-                        ng-keyup="$event.keyCode == 13 ? nicknameSubmitHandler() : null"
-                        placeholder="Enter your nickname" 
-                        autocomplete="off" 
-                        autofocus 
-                    >
-                    <p class='error' ng-show="nicknameError">{{nicknameError}}</p>
-                </div>
-            </script>
-
-            <div class="col-xs-2" id="chattersContainer" ng-show="gotNickname">
-                <ul id="chatters">
-                    <li ng-repeat="nickname in nicknames">{{nickname.nickname}}</li>
-                </ul>
-            </div>
-
-            <div class="col-xs-10" ng-show="gotNickname">
-                <div id="chatLog"></div>
-                <div id="formContainer">
-                    <form id="chatForm" ng-submit="submitHandler($event)">
+            <div class="row">
+                <div class="col-md-12" ng-hide="gotNickname">
+                    <form ng-submit="nicknameSubmitHandler($event)">
                         <input type="text" 
-                            id="chatInput" 
-                            class="form-control" 
-                            ng-model="chatInput" 
-                            placeholder="Enter your message" 
-                            autocomplete="off" 
+                            class="form-control center-text" 
+                            ng-model="nickname" 
+                            id="nickname"
+                            placeholder="Enter your nickname" 
+                            autocomplete="off"
+                            required
                             autofocus 
                         >
                     </form>
                 </div>
             </div>
+            
+            <div class="row">
+                <div class="col-md-2" id="chattersContainer" ng-show="gotNickname">
+                    <ul id="chatters">
+                        <li ng-repeat="nickname in nicknames">{{nickname.nickname}}</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-10" ng-show="gotNickname">
+                    <div id="chatLog"></div>
+                    <div id="formContainer">
+                        <form id="chatForm" ng-submit="submitHandler($event)">
+                            <input type="text" 
+                                id="chatInput" 
+                                class="form-control" 
+                                ng-model="chatInput" 
+                                placeholder="Enter your message" 
+                                autocomplete="off" 
+                                required
+                                autofocus 
+                            >
+                        </form>
+                    </div>
+                </div>                
+            </div>
+
         </div>
 
         <% include ../partials/scripts.ejs %>

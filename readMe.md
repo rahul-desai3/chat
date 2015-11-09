@@ -1,11 +1,11 @@
-Chatroom
+Chat
 ====
 
-This repo contains a chatroom server (`index.js`) and a chat client (`index.html`/`app.js`). It suports following features:
+This repo contains a chat server (`index.js`) and a chat client (`index.html`/`app.js`). It suports following features:
 
-  - Send and receive message to and from the chatroom.
+  - Send and receive message to and from the chat.
   - 1:1 chat can be converted to a group chat by just sharing the URL.
-  - Get notification if a member joins or leaves the chatroom. 
+  - Get notification if a member joins or leaves the chat.
 
 Demo
 ----
@@ -46,14 +46,16 @@ npm install
 node index.js
 ```
 
-* After running the server, you can checkout the chatroom at `http://localhost:5000`
+* After running the server, you can checkout the chat at `http://localhost:5000`
 
 Deploying on Heroku
 ----
-Heroku doesnt support static port number. So, make sure to change the port number in `index.js` line # 6 to `process.env.PORT`
+Heroku doesnt support static port number. So, make sure to change the port number in `index.js` line # 6 to `process.env.PORT`. Mention the server URL on the client side (`app.js` line # 6).
+For MongoDB hosting, I would recommend https://mongolab.com/
 
 Coming soon...
 ----
+  - Generate ID for every chat so that it is private
   - Emoticons support
 
 
@@ -63,7 +65,7 @@ License
 [MIT] (Open source)
 
 [MIT]:http://opensource.org/licenses/MIT
-[Sample deployment on Heroku]:https://my-chatroom-demo.herokuapp.com/
+[Sample deployment on Heroku]:https://my-chat-demo.herokuapp.com/
 
 
 ___

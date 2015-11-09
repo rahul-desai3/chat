@@ -4,13 +4,13 @@ var app = express();
 
 var server = require('http').Server(app); // create and start express server
 server.listen(5000, function(){ // change 5000 to process.env.PORT if you are deploying to Heroku
-    console.log('The chatroom is now live at port # ' + process.env.PORT);
+    console.log('The chatroom is now live at port # ' + 5000);
 });
 
 var io = require('socket.io')(server);
 
 var mongoose = require('mongoose');
-// mongoose.set('debug', true);     // uncomment if needed
+// mongoose.set('debug', true);  // enable if necessary
 
 // configure mongoose as recommended in: http://blog.mongolab.com/2014/04/mongodb-driver-mongoose/
 var mongooseOptions = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };

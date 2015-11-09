@@ -1,30 +1,38 @@
 angular
 .module('chatroom', ['ngAnimate', 'ui.bootstrap'])
-.controller('mainController', ['$scope', '$http', '$uibModal', '$window', function($scope, $http, $uibModal, $window){
+.controller('mainController', ['$scope', '$http', '$uibModal', '$window', '$timeout', function($scope, $http, $uibModal, $window, $timeout){
 
   // first, establish the socket connection
-  var server = io('https://my-chatroom-demo.herokuapp.com');
+  var server = io('http://localhost:5000'); // change this if you are hosting on a remote server
 
   // hide chatroom until the nickname is entered
   $scope.gotNickname = false;
 
   // on connect
   server.on('connect', function(data){
-    // trigger modal load  
-    var modalInstance = $uibModal.open({
-      animation: true,
-      templateUrl: 'myModalContent.html',
-      controller: 'ModalInstanceCtrl',
-      backdrop: 'static'
-    });
 
-    modalInstance.result.then(function (nickname) {
-      server.emit('join', nickname);
-      $scope.nicknames = [ {nickname: nickname} ];
-      $scope.gotNickname = true;
-    }, function () {
-      console.log('Modal dismissed at: ' + new Date());
-    });
+    document.getElementById("nickname").focus();
+
+    $scope.nicknameSubmitHandler = function () {
+      if($scope.nickname){
+        if($scope.nickname.trim() === ''){
+          $scope.nickname = '';
+          console.log('Please enter nickname.');
+        } else {
+          console.log('Got nickname: ' + $scope.nickname);
+          server.emit('join', $scope.nickname);
+          $scope.nicknames = [ {nickname: $scope.nickname} ];
+          $scope.gotNickname = true;
+
+          $timeout(function(){  // temporary fix for angular
+            document.getElementById('chatInput').focus();
+          }, 500);
+        }
+      } else {
+        console.log('Please enter nickname.');
+      }
+    };
+
   });
 
   // on new chatter
@@ -80,18 +88,3 @@ angular
   });
 
 }]);
-
-angular.module('chatroom').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
-  $scope.nicknameSubmitHandler = function () {
-    if($scope.nickname){
-      if($scope.nickname.trim() === ''){
-        $scope.nickname = '';
-        $scope.nicknameError = "Please enter a nickname.";
-      } else {
-        $uibModalInstance.close($scope.nickname);
-      }
-    } else {
-      $scope.nicknameError = "Please enter a nickname.";
-    }
-  };
-});

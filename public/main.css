@@ -1,37 +1,10 @@
-.jumbotron {
-  background: #532F8C;
-  color: white;
-  padding-bottom: 80px; }
-  .jumbotron .btn-primary {
-    background: #845ac7;
-    border-color: #845ac7; }
-    .jumbotron .btn-primary:hover {
-      background: #7646c1; }
-  .jumbotron p {
-    color: #d9ccee;
-    max-width: 75%;
-    margin: 1em auto 2em; }
-  .navbar + .jumbotron {
-    margin-top: -20px; }
-  .jumbotron .lang-logo {
-    display: block;
-    background: #B01302;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    border: 2px solid white; }
-    .jumbotron .lang-logo img {
-      max-width: 100%; }
-
-.col-xs-10{
+.col-md-10{
   height: 400px;
 }
 
 div#chatLog{
   overflow-y: auto;
-  max-height: 350px;
+  height: 350px;
 }
 
 ul#chatters{
@@ -64,9 +37,8 @@ form#chatForm{
 }
 
 input#chatInput{
-  width: 100%;
+  width: 95%;
   height: 10%;
-  border: 0px;
   outline: none;
   padding: 10px 10px 10px 0px;
 }
@@ -83,8 +55,7 @@ li.ng-binding.ng-scope:first-child:after {
     content: " (me)";
 }
 
-.well{
-  background-color: #FFFFFF;
+.container{
   margin-top: 50px;
 }
 
@@ -92,6 +63,10 @@ li.ng-binding.ng-scope:first-child:after {
     border-color: transparent;
     padding-left: 0px;
     box-shadow: none;
+}
+
+.center-text{
+  text-align: center;
 }
 
 .error{
