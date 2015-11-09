@@ -1,29 +1,28 @@
 Chatroom
 ====
 
-This software repository/project contains a chatroom server (server.js) and a chat client (index.html). It suports following features:
+This repo contains a chatroom server (`index.js`) and a chat client (`index.html`/`app.js`). It suports following features:
 
   - Send and receive message to the chatroom
   - 1:1 chat can be converted to a group chat by just sharing the URL
   - Receive offline messages (messages sent when the receiver was offline)
   - Get notification if a new member joins the chatroom 
-  - List of members in the chatroom
 
 
 Version
 ----
 
-0.3
+0.4
 
 
 Technologies
 ----
 * Javascript (ECMAScript 6)
+* Angular.js v1.4.7
 * Node.js v5.0.0
 * Socket.io v1.3.7
 * Express.js v4.13.3
-* jQuery core library v1.11.1
-* Redis v2.3.0
+* Angular Bootstrap v0.14.3
 * HTML5
 * CSS3
 
@@ -31,29 +30,28 @@ Technologies
 Installation & Setup
 ----
 * `git clone` or download and unzip this project.
-* Download and install Node.js and the following node modules: `socket.io`, `express`, `redis`. These node modules should be installed locally in the root folder of the project. Here is the command for installation:
-
+* Download and install `node.js`.
+* Use the following command to install packages mentioned in `packages.json`
 ```sh
-npm install socket.io express redis
+npm install
 ```
 
-* Also download and install Redis server v3.0.5, 64 bit: http://redis.io/topics/quickstart
-* Run the Redis server using the command `redis-server` in the redis directory.
-* Ensure that port `8080` is free (or you can use any port that is free, just make sure to mention it in `server.js` and `index.html`)
-* To run the Node server, browser to you projet's root directory in your command prompt/terminal and issue the following command:
-
+* Download and install `MongoDB`. 
+* Mention the connection string in `index.js` line # 18 and run `MongoDB`.
+* Run the project using following command:
 ```sh
-node server.js
+node index.js
 ```
 
-* After running the server, you can checkout the chatroom at `http://localhost:8080` (or with whatever port number that you used).
+* After running the server, you can checkout the chatroom at `http://localhost:5000`
 
+Deploying on Heroku
+----
+Heroku doesnt support static port number. So, make sure to change the port number in `index.js` line # 6 to `process.env.PORT`
 
 Coming soon...
 ----
-  - Replace jQuery with Angular.js for better performance
-  - Replace Redis with MongoDB for persisting messages
-  - Updated list of members online in the chatroom if someone disconnects
+  - Emoticons support
 
 
 License
@@ -62,3 +60,26 @@ License
 [MIT] (Open source)
 
 [MIT]:http://opensource.org/licenses/MIT
+
+___
+
+Version History:
+----
+v0.4
+-----------
+* Updated as per Heroku's node project structure
+* Migrated to MongoDB from Redis for persisting messages
+* Added Angular Bootstrap UI components library
+
+v0.3
+-----------
+* Upgraded Node.js to v5.0.0
+* Upgraded Socket.io to v1.0
+
+v0.2
+-----------
+* Performance enhancements and style fixes
+
+v0.1
+-----------
+* Basic working setup
