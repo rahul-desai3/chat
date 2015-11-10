@@ -43,6 +43,10 @@ input#chatInput{
   padding: 10px 10px 10px 0px;
 }
 
+input[type='text'] {  /* fix for iPhone Safari zooming */
+  font-size: 16px;
+}
+
 span.italic{
   font-style: italic;
 }

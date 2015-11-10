@@ -10,8 +10,10 @@ angular
 
   // on connect
   server.on('connect', function(data){
-
-    document.getElementById("nickname").focus();
+    
+    $timeout(function(){  // temporary fix for angular
+      document.getElementById('nickname').focus();
+    }, 300);
 
     $scope.nicknameSubmitHandler = function () {
       if($scope.nickname){
@@ -26,7 +28,7 @@ angular
 
           $timeout(function(){  // temporary fix for angular
             document.getElementById('chatInput').focus();
-          }, 500);
+          }, 300);
         }
       } else {
         console.log('Please enter nickname.');

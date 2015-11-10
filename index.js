@@ -15,7 +15,7 @@ var mongoose = require('mongoose');
 // configure mongoose as recommended in: http://blog.mongolab.com/2014/04/mongodb-driver-mongoose/
 var mongooseOptions = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
 
-var mongodbUri = 'mongodb://heroku_kjsrj1v0:vontera2014@ds037623-a0.mongolab.com:37623,ds037623-a1.mongolab.com:37623/heroku_kjsrj1v0?replicaSet=rs-ds037623';
+var mongodbUri = 'mongodb-connection-string';
 
 mongoose.connect(mongodbUri, mongooseOptions);
 
