@@ -76,7 +76,6 @@ v0.4
 -----------
 * Updated as per Heroku's node project structure
 * Migrated to MongoDB from Redis for persisting messages
-* Added Angular Bootstrap UI components library
 
 v0.3
 -----------
