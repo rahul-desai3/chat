@@ -25,6 +25,7 @@ Technologies
 * Node.js v5.0.0
 * Socket.io v1.3.7
 * Express.js v4.13.3
+* MongoDB v2.6.11
 * Bootstrap v3.3.4
 * HTML5
 * CSS3
