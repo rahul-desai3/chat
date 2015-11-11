@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Chat by rahul-desai3</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Chat</h1>
+        <h2>A simple chat application developed using Node.js and Socket.io</h2>
+        <a href="https://github.com/rahul-desai3/chat" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="chat" class="anchor" href="#chat" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chat</h1>
+
+<p>This repo contains a chat server (<code>index.js</code>) and a chat client (<code>index.html</code>/<code>app.js</code>). It provides following features:</p>
+
+<ul>
+<li>Send and receive message to and from the chat.</li>
+<li>1:1 chat can be converted to a group chat by just sharing the URL.</li>
+<li>Get notification if a member joins or leaves the chat.</li>
+</ul>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p><a href="https://my-chat-demo.herokuapp.com/">Sample deployment on Heroku</a></p>
+
+<h2>
+<a id="version" class="anchor" href="#version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version</h2>
+
+<p>0.4</p>
+
+<h2>
+<a id="technologies" class="anchor" href="#technologies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Technologies</h2>
+
+<ul>
+<li>Javascript (ECMAScript 6)</li>
+<li>Angular.js v1.4.7</li>
+<li>Node.js v5.0.0</li>
+<li>Socket.io v1.3.7</li>
+<li>Express.js v4.13.3</li>
+<li>Bootstrap v3.3.4</li>
+<li>HTML5</li>
+<li>CSS3</li>
+</ul>
+
+<h2>
+<a id="installation--setup" class="anchor" href="#installation--setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation &amp; Setup</h2>
+
+<ul>
+<li>
+<code>git clone</code> or download and unzip this project.</li>
+<li>Download and install <code>node.js</code>.</li>
+<li>Use the following command to install node packages mentioned in <code>packages.json</code>
+</li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>npm install</pre></div>
+
+<ul>
+<li>Download and install <code>MongoDB</code>. </li>
+<li>Mention the connection string in <code>index.js</code> line # 18 and run <code>MongoDB</code>.</li>
+<li>Run the project using following command:</li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>node index.js</pre></div>
+
+<ul>
+<li>After running the server, you can checkout the chat at <code>http://localhost:5000</code>
+</li>
+</ul>
+
+<h2>
+<a id="deploying-on-heroku" class="anchor" href="#deploying-on-heroku" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deploying on Heroku</h2>
+
+<p>Heroku doesnt support static port number. So, make sure to change the port number in <code>index.js</code> line # 6 to <code>process.env.PORT</code>. Mention the server URL on the client side (<code>app.js</code> line # 6).
+For MongoDB hosting, I would recommend <a href="https://mongolab.com/">https://mongolab.com/</a></p>
+
+<h2>
+<a id="coming-soon" class="anchor" href="#coming-soon" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coming soon...</h2>
+
+<ul>
+<li>Generate ID for every chat so that it is private</li>
+<li>Emoticons support</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="Open%20source">MIT</a></p>
+
+<hr>
+
+<h2>
+<a id="version-history" class="anchor" href="#version-history" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version History:</h2>
+
+<h2>
+<a id="v04" class="anchor" href="#v04" aria-hidden="true"><span class="octicon octicon-link"></span></a>v0.4</h2>
+
+<ul>
+<li>Updated as per Heroku's node project structure</li>
+<li>Migrated to MongoDB from Redis for persisting messages</li>
+</ul>
+
+<h2>
+<a id="v03" class="anchor" href="#v03" aria-hidden="true"><span class="octicon octicon-link"></span></a>v0.3</h2>
+
+<ul>
+<li>Upgraded Node.js to v5.0.0</li>
+<li>Upgraded Socket.io to v1.0</li>
+</ul>
+
+<h2>
+<a id="v02" class="anchor" href="#v02" aria-hidden="true"><span class="octicon octicon-link"></span></a>v0.2</h2>
+
+<ul>
+<li>Performance enhancements and style fixes</li>
+</ul>
+
+<h2>
+<a id="v01" class="anchor" href="#v01" aria-hidden="true"><span class="octicon octicon-link"></span></a>v0.1</h2>
+
+<ul>
+<li>Basic working setup</li>
+</ul>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/rahul-desai3/chat/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/rahul-desai3/chat/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/rahul-desai3/chat"></a> is maintained by <a href="https://github.com/rahul-desai3">rahul-desai3</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
