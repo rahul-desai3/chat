@@ -56,7 +56,7 @@ For MongoDB hosting, I would recommend https://mongolab.com/
 
 Coming soon...
 ----
-  - Generate ID for every chat so that it is private
+  - Private chatrooms using system generated ID and user assigned password
   - Emoticons support
 
 
@@ -85,7 +85,7 @@ v0.3
 
 v0.2
 -----------
-* Performance enhancements and style fixes
+* Performance enhancements
 
 v0.1
 -----------
