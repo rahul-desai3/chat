@@ -46,13 +46,28 @@ app.get('/', function(request, response) {
 
 app.set('port', (process.env.PORT || 5000));
 
+function saveChatLog(nickname, newMessage){
+    // save the new ChatLog
+    var newChatLog = new ChatLog({
+        timestamp: Date.now(),
+        nickname: nickname,
+        message: newMessage
+    });
+    newChatLog.save(function(err) {
+        if (err) throw err;
+        console.log('newChatLog saved successfully!');
+    });
+}
+
 io.on('connection', function (client) {
     
     client.on('join', function(nickname){
 
         client.nickname = nickname;
         console.log(client.nickname + " has joined!");
-        client.broadcast.emit("messages", "<span class='italic'><strong>" + client.nickname + "</strong> has joined!</span>");
+        var newMessage = "<span class='italic'><strong>" + client.nickname + "</strong> has joined!</span>"
+        client.broadcast.emit("messages", newMessage);
+        saveChatLog(undefined, newMessage);  // undefined because message is system generated
         client.broadcast.emit("add chatter", client.nickname);
         console.log('Broadcasted to all clients, except the new one.');
 
@@ -83,20 +98,28 @@ io.on('connection', function (client) {
 
             // notify that it is loading
             if(messages.length === 1){
-                client.emit("messages", "<span class='italic'>Loading recent 1 message.</span>"); // eliminate the s in message(s)
+                client.emit("messages", "<span class='italic'>Loading recent 1 message/log.</span>"); // eliminate the s in message(s)
             } else if(messages.length !== 0){
-                client.emit("messages", "<span class='italic'>Loading recent " + messages.length + " messages.</span>");
+                client.emit("messages", "<span class='italic'>Loading recent " + messages.length + " messages/logs.</span>");
             }
 
             messages.reverse(); // so that it is in chronological order
 
             messages.forEach(function(message){
-                client.emit("messages", "<strong>" + message.nickname + ":</strong> " + message.message);
+                if(typeof message.nickname !== 'undefined'){ // if not system generated
+                    client.emit("messages", "<strong>" + message.nickname + ":</strong> " + message.message);
+                } else {
+                    client.emit("messages", message.message);
+                }
             });
 
-            client.emit("messages", "<hr/>");
+            client.emit("messages", "<hr/>");  // end of recent messages
 
-            client.emit("messages", "<span class='italic'><strong>" + client.nickname + "</strong> has joined!</span>"); // let the user know
+            var newMessage = "<span class='italic'><strong>" + client.nickname + "</strong> has joined!</span>";
+            client.broadcast.emit("messages", newMessage);  // let the user know
+            client.emit("messages", newMessage);  // let this user know too
+            saveChatLog(undefined, newMessage);  // undefined because message is system generated
+
 
         });
     });
@@ -104,15 +127,7 @@ io.on('connection', function (client) {
     client.on('messages', function (messages) {
         client.broadcast.emit("messages", "<strong>" + client.nickname + ":</strong> " + messages);
         // save the new ChatLog
-        var newChatLog = new ChatLog({
-            timestamp: Date.now(),
-            nickname: client.nickname,
-            message: messages
-        });
-        newChatLog.save(function(err) {
-            if (err) throw err;
-            console.log('newChatLog saved successfully!');
-        });
+        saveChatLog(client.nickname, messages);
     });
 
     client.on('disconnect', function(nickname){
@@ -122,8 +137,12 @@ io.on('connection', function (client) {
         if(client.nickname !== null && typeof client.nickname !== 'undefined'){
             client.broadcast.emit("remove chatter", client.nickname);
 
-            client.broadcast.emit("messages", "<span class='italic'><strong>" + client.nickname + "</strong> has left.</span>"); // let the user know
+            var newMessage = "<span class='italic'><strong>" + client.nickname + "</strong> has left.</span>";
+
+            client.broadcast.emit("messages", newMessage); // let the user know
             
+            saveChatLog(undefined, newMessage);  // undefined because message strcture is different, it is system generated, no need to save nickname
+
             // remove from database
             OnlineChatters.findOneAndRemove({ nickname: client.nickname }, function(err) {
                 if (err) throw err;
