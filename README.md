@@ -1,7 +1,7 @@
 Chat
 ====
 
-This repo contains a chat server (`index.js`) and a chat client (`index.html`/`app.js`). It provides following features:
+This is a M.E.A.N. stack Chat application, it contains a chat server (`index.js`) and a chat client (`index.ejs`/`app.js`). It provides following features:
 
   - Send and receive message to and from the chat.
   - 1:1 chat can be converted to a group chat by just sharing the URL.
