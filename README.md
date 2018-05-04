@@ -20,13 +20,13 @@ Version
 
 Technologies
 ----
-* Javascript (ECMAScript 6)
-* Angular.js v1.4.7
-* Node.js v5.0.0
-* Socket.io v1.3.7
-* Express.js v4.13.3
-* MongoDB v2.6.11
-* Bootstrap v3.3.4
+* Javascript
+* Angular.js
+* Node.js
+* Socket.io
+* Express.js
+* MongoDB
+* Bootstrap
 * HTML5
 * CSS3
 
@@ -34,25 +34,25 @@ Technologies
 Installation & Setup
 ----
 * `git clone` or download and unzip this project.
-* Download and install `node.js`.
+* Download and install `node.js` https://nodejs.org
 * Use the following command to install node packages mentioned in `packages.json`
 ```sh
 npm install
 ```
 
-* Download and install `MongoDB`. 
+* Download and install `MongoDB` https://www.mongodb.com
 * Mention the connection string in `index.js` line # 18 and run `MongoDB`.
 * Run the project using following command:
 ```sh
-node index.js
+npm start
 ```
 
-* After running the server, you can checkout the chat at `http://localhost:5000`
+* After running the server, you can access the app at `http://localhost:5000`
 
 Deploying on Heroku
 ----
 Heroku doesnt support static port number. So, make sure to change the port number in `index.js` line # 6 to `process.env.PORT`. Mention the server URL on the client side (`app.js` line # 6).
-For MongoDB hosting, I would recommend https://mongolab.com/
+For MongoDB hosting, I would recommend https://mlab.com
 
 Coming soon...
 ----
