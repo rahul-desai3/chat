@@ -73,6 +73,10 @@ ___
 
 Version History:
 ----
+v0.5
+-----------
+* Resolved security vulnerabilities in NPM modules, upgraded all outdated modules
+
 v0.4
 -----------
 * Updated as per Heroku's node project structure
